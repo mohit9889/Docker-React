@@ -1,4 +1,7 @@
 sudo: required
+language: node_js
+node_js:
+  - 15
 services:
   - docker
 
@@ -7,3 +10,11 @@ before_install:
 
 script:
   - docker run -e CI=true mohit9889/docker-react npm run test
+
+deploy:
+  provider: heroku
+  app: "docker-react-frontend"
+  api-key:
+    secure: $HEROKU_API_KEY
+  on:
+    branch: master
