@@ -14,7 +14,6 @@ script:
 deploy:
   provider: heroku
   app: "docker-react-frontend"
-  api-key:
-    secure: $HEROKU_API_KEY
+  api-key: $HEROKU_API_KEY
   on:
     branch: master
